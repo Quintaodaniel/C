@@ -1,27 +1,31 @@
+// Queue Implementation (Circular Dynamic)
+// ---------------------------------------
+// Goal: Create a circular queue structure with enqueue, dequeue, front, isEmpty, isFull, clear, and destroy operations.
+// Trains: structs, dynamic memory (malloc/free), queue logic with circular indexing, error handling.
+
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef struct {
     int cap;
-    int f, r;
-    int* vetor;
-} Fila;
+    int frontIndex, rearIndex;
+    int* data;
+} Queue;
 
-Fila* criaFila(int cap) {
-    Fila* q = (Fila*) malloc(sizeof(Fila));
-
+Queue* createQueue(int cap) {
+    Queue* q = malloc(sizeof(Queue));
     if (!q) {
-        puts("Erro ao alocar memória para a Fila!");
+        puts("Memory allocation error for the queue!");
         exit(1);
     }
 
-    q->f = -1; 
-    q->r = -1; 
+    q->frontIndex = -1;
+    q->rearIndex = -1;
     q->cap = cap;
-    q->vetor = (int*) malloc(cap * sizeof(int));
+    q->data = malloc(cap * sizeof(int));
 
-    if (!q->vetor) {
-        puts("Erro ao alocar memória para o vetor da Fila!");
+    if (!q->data) {
+        puts("Memory allocation error for the queue array!");
         free(q);
         exit(1);
     }
@@ -29,61 +33,62 @@ Fila* criaFila(int cap) {
     return q;
 }
 
-void esvazia(Fila* q) {
-    q->f = -1;
-    q->r = -1;
+void clearQueue(Queue* q) {
+    q->frontIndex = -1;
+    q->rearIndex = -1;
 }
 
-int vazia(const Fila* q) {
-    return (q->f == -1);
+int isEmpty(const Queue* q) {
+    return (q->frontIndex == -1);
 }
 
-int cheia(const Fila* q) {
-    return ((q->r + 1) % q->cap == q->f);
+int isFull(const Queue* q) {
+    return ((q->rearIndex + 1) % q->cap == q->frontIndex);
 }
 
-void enfila(Fila* q, int num) {
-    if (cheia(q)) {
-        puts("Erro: A fila está cheia!");
+void enqueue(Queue* q, int value) {
+    if (isFull(q)) {
+        puts("Error: Queue is full!");
         return;
     }
 
-    if (vazia(q)) {
-        q->f = 0;
+    if (isEmpty(q)) {
+        q->frontIndex = 0;
     }
 
-    q->r = (q->r + 1) % q->cap;
-    q->vetor[q->r] = num;
+    q->rearIndex = (q->rearIndex + 1) % q->cap;
+    q->data[q->rearIndex] = value;
 }
 
-int desenfila(Fila* q) {
-    if (vazia(q)) {
-        puts("Erro: A fila está vazia!");
-        exit(1); 
-    }
-
-    int num = q->vetor[q->f];
-
-    if (q->f == q->r) {
-        esvazia(q); 
-    } else {
-        q->f = (q->f + 1) % q->cap;
-    }
-
-    return num;
-}
-
-int frente(const Fila* q) {
-    if (vazia(q)) {
-        puts("Erro: A fila está vazia!");
+int dequeue(Queue* q) {
+    if (isEmpty(q)) {
+        puts("Error: Queue is empty!");
         exit(1);
     }
-    return q->vetor[q->f];
+
+    int value = q->data[q->frontIndex];
+
+    if (q->frontIndex == q->rearIndex) {
+        clearQueue(q);
+    } else {
+        q->frontIndex = (q->frontIndex + 1) % q->cap;
+    }
+
+    return value;
 }
 
-void destruirFila(Fila* q) {
+int front(const Queue* q) {
+    if (isEmpty(q)) {
+        puts("Error: Queue is empty!");
+        exit(1);
+    }
+
+    return q->data[q->frontIndex];
+}
+
+void destroyQueue(Queue* q) {
     if (q != NULL) {
-        free(q->vetor);
+        free(q->data);
         free(q);
     }
 }
