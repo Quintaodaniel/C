@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "linkedlist.h"
 
 typedef struct Node {
     int value;
