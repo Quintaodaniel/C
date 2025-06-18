@@ -1,3 +1,10 @@
+// Linked Queue Implementation (Dynamic)
+// -------------------------------------
+// Goal: Implement a dynamic queue using a singly linked list, with basic operations such as 
+// enqueue, dequeue, front, isEmpty, clear, and destroy.
+// Trains: dynamic memory allocation (malloc/free), linked list manipulation, 
+// FIFO queue logic, modularization, and safe memory handling.
+
 #include <stdio.h>
 #include <stdlib.h>
 
