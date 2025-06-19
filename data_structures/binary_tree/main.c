@@ -32,18 +32,7 @@ Node* createNewNode(int value) {
 }
 
 Node* insert(Node* root, int value) {
-    if (root == NULL) {
-        Node* newNode = malloc(sizeof(Node));
-        if (!newNode) {
-            puts("Erro: memory allocation failed!");
-            exit(1);
-        }
-
-        newNode->value = value;
-        newNode->left = NULL;
-        newNode->right = NULL;
-        return newNode;
-    }
+    if (root == NULL) createNewNode(value);
 
     if (value < root->value) root->left = insert(root->left, value);
     else root->right = insert(root->right, value);
