@@ -1,6 +1,26 @@
-// main.c
-// Projeto: sorting
+#include <stdio.h>
+#include <stdlib.h>
 
-int main() {
-    return 0;
+void bubbleSort() {
+
+}
+
+void selectionSort() {
+
+}
+
+void insertionSort() {
+
+}
+
+void mergeSort() {
+
+}
+
+void quickSort() {
+
+}
+
+void heapSort() {
+    
 }
