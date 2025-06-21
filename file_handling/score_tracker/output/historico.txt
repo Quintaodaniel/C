@@ -1,0 +1,4 @@
+Resultado: Jogador1 = 7, Jogador2 = 4
+Resultado: Jogador1 = 2, Jogador2 = 6
+Resultado: Jogador1 = 6, Jogador2 = 6
+Resultado: Jogador1 = 3, Jogador2 = 2
