@@ -1,0 +1,4 @@
+Terminar o reposit¢rio C;in-progress
+Reposit¢rio Python;pending
+Reposit¢rio SQL;pending
+Terminar esse codigo;completed
