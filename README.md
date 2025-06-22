@@ -10,9 +10,10 @@ C/
 ├── pointers_and_memory/        // Pointer manipulation and dynamic allocation
 ├── structs/                    // Projects using structs and nested data
 ├── data_structures/            // Lists, stacks, queues, binary trees
-├── file_handling/              // Reading and writing data to files
-├── algorithms/                 // Sorting and searching implementations
-└── challenges/                 // Solved problems from URI and The Huxley
+├── file_handling/               // Reading and writing data to files
+├── algorithms/                  // Sorting and searching implementations
+├── challenges/                  // Solved problems from URI and The Huxley
+└── include/                    // Header files (.h) for shared definitions
 ```
 
 ## Highlights
