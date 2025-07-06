@@ -5,16 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "linkedlist.h"
-
-typedef struct Node {
-    int value;
-    struct Node* next;
-} Node;
-
-typedef struct {
-    Node* head;
-} LinkedList;
+#include "../../includes/linkedlist.h"
 
 // ====================== Core Functions (List Management) ======================
 

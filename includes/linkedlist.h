@@ -26,6 +26,7 @@ void removeByIndex(int index, LinkedList* list);
 
 void printList(const LinkedList* list);
 int listSize(const LinkedList* list);
+
 Node* searchByValue(int value, const LinkedList* list);
 Node* searchByIndex(int index, const LinkedList* list);
 
